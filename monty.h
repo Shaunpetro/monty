@@ -58,6 +58,9 @@ typedef struct instruction_s;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+bus_t bus = {NULL, NULL, NULL, 0};
 
+void f_add(stack_t **head, unsigned int counter);
+int main(int argc, char *argv[]);
 
 #endif
