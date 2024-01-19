@@ -62,5 +62,10 @@ bus_t bus = {NULL, NULL, NULL, 0};
 
 void f_add(stack_t **head, unsigned int counter);
 int main(int argc, char *argv[]);
+void f_nop(stack_t **head, unsigned int container);
+void f_swap(stack_t **head, unsigned int counter);
+void f_pall(stack_t **head, unsigned int counter);
+void f_pop(stack_t **head, unsigned int counter);
+void f_pint(stack_t **head, unsigned int counter);
 
 #endif
