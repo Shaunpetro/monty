@@ -1,9 +1,9 @@
-#include "monty.c"
+#include "monty.h"
 
 /**
- * f_mod - computes rest division from 2nd element
- * @head: head
- * @counter:line_num
+ * f_mod - computes the rest of the division of the second
+ * @head: stack head
+ * @counter: line_number
  *
  * Return: no return
  */
@@ -24,12 +24,13 @@ void f_mod(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
+		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
 	h = *head;
 	if (h->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero \n", counter);
+		fprintf(stderr, "L%d: division by zero\n", counter);
 		fclose(bus.file);
 		free(bus.content);
 		free_stack(*head);
