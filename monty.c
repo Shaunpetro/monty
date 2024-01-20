@@ -1,11 +1,13 @@
-#include <monty.h>
+#include "monty.h"
+
+bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
  * main - monty code interpreter
- * @argc: num of arg's
- * @argv: file locator
+ * @argc: number of arguments
+ * @argv: monty file location
  *
- * Return: 0 success
+ * Return: 0 on success
  */
 
 int main(int argc, char *argv[])
@@ -19,7 +21,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
@@ -33,12 +35,13 @@ int main(int argc, char *argv[])
 	{
 		content = NULL;
 		read_line = getline(&content, &size, file);
-		bus.content;
+		bus.content = content;
 		counter++;
 		if (read_line > 0)
 		{
-			execute(content, &stack, content, file);
+			execute(content, &stack, counter, file);
 		}
+		free(content);
 	}
 	free_stack(stack);
 	fclose(file);
